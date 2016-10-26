@@ -11,10 +11,10 @@
  
 </head>
 <body>
-	<nav class="navbar navbar-default navbar-transparent navbar-fixed-top" color-on-scroll="40">
+	<nav class="navbar navbar-inverse navbar-transparent navbar-fixed-top" color-on-scroll="40" role="navigation">
 	    <div class="container-fluid">
 	        <div class="navbar-header">
-	            <button id="menu-toggle" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigationbar">
+	            <button id="menu-toggle" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
 	                <span class="sr-only">Toggle navigation</span>
 	                <span class="icon-bar bar1"></span>
 	                <span class="icon-bar bar2"></span>
@@ -26,21 +26,11 @@
 	        </div>
 	        <div class="collapse navbar-collapse" id="navigationbar">
 	            <ul class="nav navbar-nav navbar-right navbar-uppercase">
-	                    <li>
-	                        <a href="#team">L'ÉQUIPE</a>
-	                    </li>
-	                    <li>
-	                        <a href="#">iOS</a>
-	                    </li>
-	                    <li>
-	                        <a href="#">ANDROID</a>
-	                    </li>
-	                    <li>
-	                        <a href="#">BLOG</a>
-	                    </li>
-	                    <li>
-	                        <a href="#">PRESSE</a>
-	                </li>
+	                <li><a href="#section-team">L'ÉQUIPE</a></li>
+	                <li><a href="#">iOS</a></li>
+	                <li><a href="#">ANDROID</a></li>
+	                <li><a href="#">BLOG</a></li>
+	                <li><a href="#contact">CONTACT</a></li>
 	            </ul>
 	        </div>
 	    </div>
@@ -124,7 +114,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="section-team">
+		<div id="section-team">
 			<div class="container">
 				<div class="title-area">
 					<h3>Team</h3>
@@ -185,11 +175,28 @@
 						</div>
 					</div>
 				</div>
-			</div>
-
-
-			
+			</div>	
 		</div>
+		<div id="contact">
+			<div class="container">
+				<h3>Contact</h3>
+					<div class="row">
+						<div class="col-md-6 col-xs-12">
+							<i class="fa fa-address-book-o" aria-hidden="true"></i>
+							<h4>Challenge Me</h4>
+							<p>82, Rue Banaudon</p>
+							<p>69006 LYON</p>
+							<a href="#">info@challengeme.com</a>
+						</div>
+						<div class="col-md-6 col-xs-12">
+							<h4>Plan</h4>
+							<div id="map">
+							</div>
+						</div>
+					</div>
+			</div>
+		</div>
+
 		<footer class="footer">
 			<div class="container">
 				<div class="row">
@@ -208,7 +215,7 @@
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-4">
-						<div class="Aide">
+						<div class="info">
 							<h5>Aide</h5>
 							<nav>
 								<ul>
@@ -252,7 +259,24 @@
 			$(function(){
 				$('body').backToTop({orientation: 'right', duree: 1000});
 			});
-		</script>
+	</script>
+	<script>
+      function initMap() {
+        var lyon = {lat: 45.764162, lng: 4.835119};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 14,
+          center: lyon,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+        var marker = new google.maps.Marker({
+          position: lyon,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDu6LP8-23JoRwq2izkgN4xONaydKzmAHY&callback=initMap">
+    </script>
   <script src="js/script.js"></script>
   <script src="js/bootstrap.min.js"></script>
  

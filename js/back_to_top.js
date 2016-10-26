@@ -12,7 +12,7 @@
 		var settings = $.extend(defaultSettings, options);
 
 		//on va ajouter un div
-		this.append('<div id="back_to_top">^</div>');
+		this.append('<div id="back_to_top"><i class="fa fa-arrow-up" aria-hidden="true"></i></div>');
 		$('#back_to_top').css(settings.orientation, '20px');
 
 		//evt scroll
